@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+    <title><%= employee.first_name  %> </title>
+</head>
+
+<body class="bg-dark d-flex flex-wrap">
+    <form class="bg-light col-sm-12 col-md-10 col-lg-8 ml-5 rounded p-5 mx-auto mt-5">
+        <h2 style="text-align: center;"><%= employee.first_name  %> </h2>
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="first_name" value="<%= employee.first_name %> " placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="last_name" value="<%= employee.last_name %> " placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <label>National Code</label>
+            <input type="number" class="form-control" name="ntlcode" value=<%= employee.ntlcode %> placeholder="National Code">
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <input type="text" class="form-control" name="gender" value="<%= employee.gender %> " placeholder="Gender">
+        </div>
+        <div class="form-group">
+            <label>Is Admin</label>
+            <input type="text" class="form-control" name="admin" value="<%= employee.admin  %> " placeholder="Is Admin">
+        </div>
+        <div class="form-group">
+            <label>Company Id</label>
+            <input type="text" class="form-control" name="company" value="<%= employee.company._id %> " placeholder="Company Id" readonly>
+        </div>
+        <div class="form-group">
+            <label>Date Of Birth</label>
+            <input type="text" class="form-control" name="dob" value="<%= employee.dob %> " placeholder="Date Of Birth">
+        </div>
+        <button  type="submit" employeeId="<%= employee._id %>" class="up btn btn-primary">UPDATE</button>
+    </form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src="/javascripts/emp_info.js"></script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+    <title><%= company.name  %> </title>
+</head>
+
+<body class="bg-dark d-flex flex-wrap">
+    <form class="bg-light col-sm-12 col-md-10 col-lg-8 ml-5 rounded p-5 mx-auto mt-5">
+        <h2 style="text-align: center;"><%= company.name  %></h2>
+        <div class="form-group">
+            <label>Comapny Name</label>
+            <input type="text" class="form-control" value="<%= company.name %> "  name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label>Registration Code</label>
+            <input type="number" class="form-control" value=<%= company.rgscode %> name="rgscode" placeholder="Registration Code">
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            <input type="text" class="form-control" value="<%= company.state %> " name="state" placeholder="State">
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" class="form-control" value="<%= company.city %> " name="city" placeholder="City">
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="number" class="form-control" value=<%= company.phone %> name="phone" placeholder="Phone">
+        </div>
+        <div class="form-group">
+            <label>Create At</label>
+            <input type="text" class="form-control" value="<%= company.CreatedAt %> " name="CreatedAt" placeholder="Create At">
+        </div>
+
+        <button type="submit" companyId="<%= company._id %>" class="up btn btn-primary">UPDATE</button>
+    </form>
+    
+    <div class="container-fluid mt-5">
+        <table class="table table-hover  bg-white mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">National Code</th>
+                    <th scope="col">gender</th>
+                    <th scope="col">Is Admin</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Date Of Birth</th>
+                    <th scope="col"><a href="/employee/add/<%= company._id %> " class="btn btn-success btn-sm px-4">
+                            ADD
+                            <a /></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let i=0; i < employees.length; i++ ) { %>
+                    <tr>
+                        <td>
+                            <%= employees[i].first_name %>
+                        </td>
+                        <td>
+                            <%= employees[i].last_name %>
+                        </td>
+                        <td>
+                            <%= employees[i].ntlcode %>
+                        </td>
+                        <td>
+                            <%= employees[i].gender %>
+                        </td>
+                        <td>
+                            <%= employees[i].admin %>
+                        </td>
+                        <td>
+                            <%= company.name %> 
+                        </td>
+                        <td>
+                            <%= employees[i].dob %>
+                        </td>
+                        <td>
+                            <span><a employeeId="<%= employees[i]._id %>" class="del_emp btn btn-danger text-white btn-sm px-3">
+                                    <i class="fas fa-times"></i>
+                                </a></span>
+                            <span><a href="/employee/<%=employees[i]._id %>"
+                                    class="btn btn-primary text-white btn-sm px-3">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </a></span>
+                        </td>
+                    </tr>
+                    <% } %>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src="/javascripts/update.js"></script>
+<script src="/javascripts/del_emp.js"></script>
+</html>
