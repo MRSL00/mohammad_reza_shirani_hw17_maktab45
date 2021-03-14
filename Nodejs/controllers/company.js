@@ -75,7 +75,7 @@ const Update = (req, res) => {
     return res.status(400).json({ msg: "Bad Request :)" });
   }
 
-  Company.findOne({ name: req.body.name.trim() }, (err, existCompany) => {
+  Company.findOne({ name: req.body.name.trim(),_id:{$ne:req.params.id} }, (err, existCompany) => {
     if (err)
       return res.status(500).json({ msg: "Server Error :)", err: err.message });
     if (existCompany)

@@ -42,9 +42,10 @@ const Add = (req, res) => {
     if (err)
       return res.status(500).json({ msg: "Server Error :)", err: err.message });
     if (!company) return res.status(404).json({ msg: "Not Found :)" });
-
+    
     // check Exist admin
-    if (req.body.admin === true) {
+    if (req.body.admin === "true") {
+    
       Employee.find(
         { company: req.body.company, admin: true },
         (err, admin) => {
@@ -88,14 +89,14 @@ const Update = (req, res) => {
   if (new Date() <= new Date(req.body.dob)) {
     return res.status(400).json({ msg: "Bad Request :)" });
   }
-
+  console.log("=======================body=============================\n",req.body)
   //   Company.findById(req.body.company, (err, company) => {
   //     if (err)
   //       return res.status(500).json({ msg: "Server Error :)", err: err.message });
   //     if (!company) return res.status(404).json({ msg: "Not Found :)" });
 
   // check Exist admin
-  if (req.body.admin === true) {
+  if (req.body.admin === "true") {
     Employee.find({ company: req.body.company, admin: true }, (err, admin) => {
       if (err)
         return res

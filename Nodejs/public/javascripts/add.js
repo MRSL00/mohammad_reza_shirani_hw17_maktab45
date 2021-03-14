@@ -4,6 +4,7 @@ $(document).ready(() => {
   $("button").click(function (e) {
     const myValue = $("input[name=admin]").val();
     const isTrueval = myValue === "true";
+    console.log(isTrueval);
     e.preventDefault();
     let Info = {
       first_name: $("input[name=first_name]").val(),

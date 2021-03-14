@@ -20,13 +20,13 @@ $(document).ready(function () {
       data: Info,
       success: function (data) {
         console.log(data)
-        // if (data === "update") {
-        //   alert("iformation updated");
-        //   // $(location).attr(
-        //   //   "href",
-        //   //   "http://localhost:1000/company/" + $("input[name=company]").val()
-        //   // );
-        // }
+        if (data === "update") {
+          alert("iformation updated");
+          $(location).attr(
+            "href",
+            "http://localhost:1000/company/" + $("input[name=company]").val()
+          );
+        }
       },
       error: function (err) {
         console.log(err);
